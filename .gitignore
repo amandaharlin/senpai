@@ -1,7 +1,7 @@
 .DS_Store
 .git
 node_modules
-build
+dist
 artifacts
 *.node
 *.log
