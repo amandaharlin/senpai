@@ -1,37 +1,49 @@
 {
   "name": "senpai",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "visual novel framework generator",
   "main": "index.js",
   "scripts": {
     "test": "gulp test",
     "coveralls": "gulp coveralls"
   },
-  "contributors": [
-    {"name": "amanda harlin","email": "amanda.n.harlin@gmail.com","url": "amandaharlin.com"},
-    {"name": "jessica campbell","email": "","url": "seejessicacode.com"},
-    {"name":"jesse harlin","email":"harlinjesse@gmail.com","url":"jesseharlin.net"}
-    ]
+  "author": {
+    "name": "amanda harlin",
+    "email": "amanda.n.harlin@gmail.com",
+    "url": "amandaharlin.com"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/amandaharlin/senpai.git"
-  },
-  "keywords": [
-    "senpai",
-    "visual",
-    "novel",
-    "anime",
-    "dialogue game",
-    "choose your own adventure"
-  ],
-  "author": "jesse harlin, jessica campbell, amanda harlin",
-  "license": {
-    "type": "MIT",
-    "url": "https://github.com/amandaharlin/senpai/blob/master/LICENSE"
-  },
-  "bugs": {
-    "url": "https://github.com/amandaharlin/senpai/issues"
-  },
-  "homepage": "https://github.com/amandaharlin/senpai#readme"
+  "contributors": [{
+    "name": "amanda harlin",
+    "email": "amanda.n.harlin@gmail.com",
+    "url": "amandaharlin.com"
+  }, {
+    "name": "jessica campbell",
+    "email": "jesslyn.campbell@gmail.com",
+    "url": "seejessicacode.com"
+  }, {
+    "name": "jesse harlin",
+    "email": "harlinjesse@gmail.com",
+    "url": "jesseharlin.net"
+  }]
+},
+"repository": {
+  "type": "git",
+  "url": "git+https://github.com/amandaharlin/senpai.git"
+},
+"keywords": [
+  "senpai",
+  "visual",
+  "novel",
+  "anime",
+  "dialogue game",
+  "choose your own adventure"
+],
+"license": {
+  "type": "MIT",
+  "url": "https://github.com/amandaharlin/senpai/blob/master/LICENSE"
+},
+"bugs": {
+  "url": "https://github.com/amandaharlin/senpai/issues"
+},
+"homepage": "https://github.com/amandaharlin/senpai#readme"
 }
