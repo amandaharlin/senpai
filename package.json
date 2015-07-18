@@ -4,7 +4,8 @@
   "description": "visual novel framework generator",
   "main": "index.js",
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "coveralls": "gulp coveralls"
   },
   "contributors": [
     {"name": "amanda harlin","email": "amanda.n.harlin@gmail.com","url": "amandaharlin.com"},
@@ -20,7 +21,9 @@
     "senpai",
     "visual",
     "novel",
-    "anime"
+    "anime",
+    "dialogue game",
+    "choose your own adventure"
   ],
   "author": "jesse harlin, jessica campbell, amanda harlin",
   "license": {
