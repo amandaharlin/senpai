@@ -6,6 +6,11 @@
   "scripts": {
     "test": "gulp test"
   },
+  "contributors": [
+    {"name": "amanda harlin","email": "amanda.n.harlin@gmail.com","url": "amandaharlin.com"},
+    {"name": "jessica campbell","email": "","url": "seejessicacode"}
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/amandaharlin/senpai.git"
