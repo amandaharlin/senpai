@@ -50,7 +50,13 @@
   },
   "homepage": "https://github.com/amandaharlin/senpai#readme",
   "devDependencies": {
+    "angular": "^1.4.3",
+    "angular-ui-router": "^0.2.15",
     "gulp": "^3.9.0",
-    "gulp-task-listing": "^1.0.1"
+    "gulp-debug": "^2.0.1",
+    "gulp-serve": "^1.0.0",
+    "gulp-task-listing": "^1.0.1",
+    "node-libs-browser": "^0.5.2",
+    "webpack": "^1.10.1"
   }
 }
