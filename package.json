@@ -8,7 +8,8 @@
   },
   "contributors": [
     {"name": "amanda harlin","email": "amanda.n.harlin@gmail.com","url": "amandaharlin.com"},
-    {"name": "jessica campbell","email": "","url": "seejessicacode"}
+    {"name": "jessica campbell","email": "","url": "seejessicacode.com"},
+    {"name":"jesse harlin","email":"harlinjesse@gmail.com","url":"jesseharlin.net"}
     ]
   },
   "repository": {
@@ -22,7 +23,10 @@
     "anime"
   ],
   "author": "jesse harlin, jessica campbell, amanda harlin",
-  "license": "MIT",
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/amandaharlin/senpai/blob/master/LICENSE"
+  },
   "bugs": {
     "url": "https://github.com/amandaharlin/senpai/issues"
   },
