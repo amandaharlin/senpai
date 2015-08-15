@@ -1,5 +1,6 @@
 require('angular');
 require('angular-ui-router');
+var uuid = require('uuid');
 
 
 var app = angular.module('app', ['ui.router']);
@@ -31,7 +32,6 @@ function lottieStateProvider($stateProvider) {
   $stateProvider.state('lottie', lottie)
 }
 
-
 app
   .config(katyStateProvider)
   .config(lottieStateProvider)
@@ -41,46 +41,45 @@ app
 function itemListDirective() {
 
   function itemListController($scope) {
-    $scope.list = [
-      {
-        id: 0,
-        value: "jessica"
-      },
-      {
-        id: 1,
-        value: "ada"
-      },
-      {
-        id: 2,
-        value: "amanda"
-      }];
     
     function addItem(list) {
       var itemValue = prompt('Enter item name:');
-      console.log(list.length);
-      console.log(list[list.length-1]);
-      console.log(list[list.length-1].id);
       
       if(itemValue) {
         var newItem =
             {
-              id: list.length, // make unique
+              id: uuid.v1(), // make unique
               value: itemValue
             };
         
         list.push(newItem);
       }
     }
-    $scope.add = addItem;
 
-    function deleteItem(listitem) {
+    function deleteItem(list, listitem, index) {
       var doIt = confirm('are you sure you want to delete ' + listitem.value + '?');
 
       if (doIt) {
-        $scope.list.splice(listitem.id, 1);
+        list.splice(index, 1);
       }
     }
+    
+    $scope.add = addItem;
     $scope.delete = deleteItem;
+    
+    $scope.list = [
+      {
+        id: uuid.v1(),
+        value: "jessica"
+      },
+      {
+        id: uuid.v1(),
+        value: "ada"
+      },
+      {
+        id: uuid.v1(),
+        value: "amanda"
+      }];
   }
 
   var scope = {
@@ -91,13 +90,11 @@ function itemListDirective() {
   return {
     restrict: 'E',
     scope: scope,
-    template: '<div ng-repeat="item in list"> <button ng-click="delete(item)"> delete </button> {{item.value}} </div><button ng-click="add(list)">Add item</button>',
+    template: '<div ng-repeat="item in list track by item.id"> <button ng-click="delete(list, item, $index)"> delete </button> {{item.value}} </div><button ng-click="add(list)">Add item</button>',
     controller: itemListController
   };
 }
 
 app.directive('itemList', itemListDirective);
-
-//app.controller('itemListController', itemListController($scope));
 
 app.run();
