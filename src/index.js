@@ -42,10 +42,28 @@ function itemListDirective() {
 
   function itemListController($scope) {
     $scope.list = [
-      { id: 0, value: "jessica"},
-      {id: 1, value: "ada"},
-      {id: 2, value: "amanda"}];
+      {
+        id: 0,
+        value: "jessica"
+      },
+      {
+        id: 1,
+        value: "ada"
+      },
+      {
+        id: 2,
+        value: "amanda"
+      }];
+
+      function deleteItem(listitem) {
+        var doIt = confirm('are you sure you want to delete ' + listitem.value + '?');
+
+      if (doIt) {
+        $scope.list.splice(listitem.id, 1);
+      }
   }
+    $scope.delete = deleteItem;
+}
 
   var scope = {
     id: "@",
@@ -55,7 +73,7 @@ function itemListDirective() {
   return {
     restrict: 'E',
     scope: scope,
-    template: '<div ng-repeat="item in list"> {{item.value}} </div>',
+    template: '<div ng-repeat="item in list"> <button ng-click="delete(item)"> delete </button> {{item.value}} </div>',
     controller: itemListController
   };
 }
