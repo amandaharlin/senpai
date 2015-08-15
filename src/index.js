@@ -41,11 +41,10 @@ app
 function itemListDirective() {
 
   function itemListController($scope) {
-    $scope.id = 1;
-    $scope.value = {
-      somestring: "binding wins!"
-    };
-
+    $scope.list = [
+      { id: 0, value: "jessica"},
+      {id: 1, value: "ada"},
+      {id: 2, value: "amanda"}];
   }
 
   var scope = {
@@ -56,7 +55,7 @@ function itemListDirective() {
   return {
     restrict: 'E',
     scope: scope,
-    template: '<div>testtesttest{{value.somestring}}</div>',
+    template: '<div ng-repeat="item in list"> {{item.value}} </div>',
     controller: itemListController
   };
 }
