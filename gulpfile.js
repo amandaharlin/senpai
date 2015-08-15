@@ -9,3 +9,4 @@ require('./gulp/serve');
 
 gulp.task('help', help);
 gulp.task('default', ['help']);
+gulp.task('bs', ['build', 'serve']);
