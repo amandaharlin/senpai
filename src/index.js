@@ -1,5 +1,6 @@
 require('angular');
 require('angular-ui-router');
+var uuid = require('uuid');
 
 
 var app = angular.module('app', ['ui.router']);
@@ -31,7 +32,6 @@ function lottieStateProvider($stateProvider) {
   $stateProvider.state('lottie', lottie)
 }
 
-
 app
   .config(katyStateProvider)
   .config(lottieStateProvider)
@@ -41,29 +41,46 @@ app
 function itemListDirective() {
 
   function itemListController($scope) {
+    
+    function addItem(list) {
+      var itemValue = prompt('Enter item name:');
+      
+      if(itemValue) {
+        var newItem =
+            {
+              id: uuid.v1(), // make unique
+              value: itemValue
+            };
+        
+        list.push(newItem);
+      }
+    }
+
+    function deleteItem(list, listitem, index) {
+      var doIt = confirm('are you sure you want to delete ' + listitem.value + '?');
+
+      if (doIt) {
+        list.splice(index, 1);
+      }
+    }
+    
+    $scope.add = addItem;
+    $scope.delete = deleteItem;
+    
     $scope.list = [
       {
-        id: 0,
+        id: uuid.v1(),
         value: "jessica"
       },
       {
-        id: 1,
+        id: uuid.v1(),
         value: "ada"
       },
       {
-        id: 2,
+        id: uuid.v1(),
         value: "amanda"
       }];
-
-      function deleteItem(listitem) {
-        var doIt = confirm('are you sure you want to delete ' + listitem.value + '?');
-
-      if (doIt) {
-        $scope.list.splice(listitem.id, 1);
-      }
   }
-    $scope.delete = deleteItem;
-}
 
   var scope = {
     id: "@",
@@ -73,13 +90,11 @@ function itemListDirective() {
   return {
     restrict: 'E',
     scope: scope,
-    template: '<div ng-repeat="item in list"> <button ng-click="delete(item)"> delete </button> {{item.value}} </div>',
+    template: '<div ng-repeat="item in list track by item.id"> <button ng-click="delete(list, item, $index)"> delete </button> {{item.value}} </div><button ng-click="add(list)">Add item</button>',
     controller: itemListController
   };
 }
 
 app.directive('itemList', itemListDirective);
-
-//app.controller('itemListController', itemListController($scope));
 
 app.run();
