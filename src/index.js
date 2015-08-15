@@ -54,16 +54,34 @@ function itemListDirective() {
         id: 2,
         value: "amanda"
       }];
+    
+    function addItem(list) {
+      var itemValue = prompt('Enter item name:');
+      console.log(list.length);
+      console.log(list[list.length-1]);
+      console.log(list[list.length-1].id);
+      
+      if(itemValue) {
+        var newItem =
+            {
+              id: list.length, // make unique
+              value: itemValue
+            };
+        
+        list.push(newItem);
+      }
+    }
+    $scope.add = addItem;
 
-      function deleteItem(listitem) {
-        var doIt = confirm('are you sure you want to delete ' + listitem.value + '?');
+    function deleteItem(listitem) {
+      var doIt = confirm('are you sure you want to delete ' + listitem.value + '?');
 
       if (doIt) {
         $scope.list.splice(listitem.id, 1);
       }
-  }
+    }
     $scope.delete = deleteItem;
-}
+  }
 
   var scope = {
     id: "@",
@@ -73,7 +91,7 @@ function itemListDirective() {
   return {
     restrict: 'E',
     scope: scope,
-    template: '<div ng-repeat="item in list"> <button ng-click="delete(item)"> delete </button> {{item.value}} </div>',
+    template: '<div ng-repeat="item in list"> <button ng-click="delete(item)"> delete </button> {{item.value}} </div><button ng-click="add(list)">Add item</button>',
     controller: itemListController
   };
 }
