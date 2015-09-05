@@ -3,7 +3,7 @@ require('angular-ui-router');
 var uuid = require('uuid');
 
 
-var app = angular.module('app', ['ui.router']);
+var app = angular.module('app', ['ui.router', 'partials']);
 
 
 function katyStateProvider($stateProvider) {
@@ -90,7 +90,7 @@ function itemListDirective() {
   return {
     restrict: 'E',
     scope: scope,
-    template: '<div ng-repeat="item in list track by item.id"> <button ng-click="delete(list, item, $index)"> delete </button> {{item.value}} </div><button ng-click="add(list)">Add item</button>',
+    templateUrl: 'list/partial.html',
     controller: itemListController
   };
 }

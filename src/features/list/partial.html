@@ -1,0 +1,6 @@
+<div ng-repeat="item in list track by item.id">
+  <button ng-click="delete(list, item, $index)"> delete </button>
+    {{item.value}}
+</div>
+
+<button ng-click="add(list)">Add item</button>
