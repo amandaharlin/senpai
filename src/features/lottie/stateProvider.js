@@ -7,4 +7,5 @@ function lottieStateProvider($stateProvider) {
   $stateProvider.state('lottie', lottie)
 }
 
-angular.module('app').config(lottieStateProvider);
+//states.config(lottieStateProvider);
+senpai.app.config(lottieStateProvider);

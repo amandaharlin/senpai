@@ -7,6 +7,6 @@ function katyStateProvider($stateProvider) {
   $stateProvider.state('katy', katy)
 }
 
-angular.module('app').config(katyStateProvider);
+senpai.app.config(katyStateProvider);
 
 require('./katyBlog/stateProvider');
