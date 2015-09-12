@@ -3,24 +3,8 @@ require('angular-ui-router');
 
 var app = angular.module('app', ['ui.router', 'partials']);
 require('./features/list/directive');
-require('./features/listitem/directive')
-
-function katyStateProvider($stateProvider) {
-  var katy = {
-    url: 'katy',
-    template: '<span>Katy rules the roost! <div ui-view></div></span>'
-  }
-
-  $stateProvider.state('katy', katy)
-}
-
-function katyBlogStateProvider($stateProvider) {
-  var katyBlogState = {
-    url: '/blog',
-    template: '<span>dis ma blawg</span>'
-  }
-  $stateProvider.state('katy.blog', katyBlogState);
-}
+require('./features/listitem/directive');
+require('./features/katy/stateProvider');
 
 function lottieStateProvider($stateProvider) {
   var lottie = {
@@ -32,8 +16,6 @@ function lottieStateProvider($stateProvider) {
 }
 
 app
-  .config(katyStateProvider)
-  .config(lottieStateProvider)
-  .config(katyBlogStateProvider);
+  .config(lottieStateProvider);
 
 app.run();
