@@ -3,17 +3,17 @@ var uuid = require('uuid');
 function listDirective() {
 
   function listController($scope) {
-    
+
     function addItem(list) {
       var itemValue = prompt('Enter item name:');
-      
+
       if(itemValue) {
         var newItem =
             {
               id: uuid.v1(), // make unique
               value: itemValue
             };
-        
+
         list.push(newItem);
       }
     }
@@ -25,10 +25,10 @@ function listDirective() {
         list.splice(index, 1);
       }
     }
-    
+
     $scope.add = addItem;
     $scope.delete = deleteItem;
-    
+
     $scope.list = [
       {
         id: uuid.v1(),
@@ -57,4 +57,4 @@ function listDirective() {
   };
 }
 
-angular.module('app').directive('list', listDirective);
+senpai.directives.directive('list', listDirective);

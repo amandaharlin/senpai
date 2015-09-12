@@ -4,4 +4,4 @@ function listItemDirective() {
   };
 }
 
-angular.module('app').directive('listItem', listItemDirective);
+senpai.directives.directive('listItem', listItemDirective);
