@@ -9,8 +9,8 @@ var senpai = {
 global.senpai = senpai;
 require('./features/list/directive');
 require('./features/listitem/directive');
-require('./features/katy/stateProvider');
-require('./features/lottie/stateProvider');
+require('./features/katy/view');
+require('./features/lottie/view');
 
 
 senpai.app.run();

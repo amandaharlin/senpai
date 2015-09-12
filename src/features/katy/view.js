@@ -9,4 +9,4 @@ function katyStateProvider($stateProvider) {
 
 senpai.app.config(katyStateProvider);
 
-require('./katyBlog/stateProvider');
+require('./katyBlog/view');
