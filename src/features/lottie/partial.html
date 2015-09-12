@@ -1,1 +1,13 @@
+
+<div>
 <span>Lottie wrecks the roost!</span>
+  <div ng-repeat="photo in photos">
+    <span id="photo-{{photo.id}}">
+      <label>{{photo.title}}</label>
+      <img
+           ng-src="https://c1.staticflickr.com/{{page}}/{{photo.server}}/{{photo.id}}_{{photo.secret}}_n.jpg"
+           ></img>
+    </span>
+  </div>
+<div>{{photos}}</div>
+</div>
