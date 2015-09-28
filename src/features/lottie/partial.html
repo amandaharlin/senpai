@@ -1,13 +1,23 @@
 
 <div>
-<span>Lottie wrecks the roost!</span>
-  <div ng-repeat="photo in photos">
-    <span id="photo-{{photo.id}}">
-      <label>{{photo.title}}</label>
-      <img
-           ng-src="https://c1.staticflickr.com/{{page}}/{{photo.server}}/{{photo.id}}_{{photo.secret}}_n.jpg"
-           ></img>
-    </span>
+  <span>Lottie wrecks the roost!</span>
+  <div>
+    She also reads Crashmo's reddit comments:
+    <table>
+      <tr>
+        <th>#</th>
+        <th>Subreddit</th>
+        <th style="width:10%;">Created</th>
+        <th>Context</th>
+        <th>Comment</th>
+      </tr>
+      <tr ng-repeat="comment in comments track by $index">
+        <td>{{$index + 1}}</td>
+        <td><a href="{{comment.data.subreddit_url}}" target="_blank">{{comment.data.subreddit}}</a></td>
+        <td>{{comment.data.created_utc | date:'medium'}}</td>
+        <td><a href="{{comment.data.comment_url}}" target="_blank">context</a></td>
+        <td>{{comment.data.body}}</td>
+      </tr>
+    </table>
   </div>
-<div>{{photos}}</div>
 </div>

@@ -1,15 +1,12 @@
 function lottieStateProvider($stateProvider) {
 
-  function resolveLottieResource($stateParams, $http) {
+  function resolveLottieResource($http) {
     
-    var format = $stateParams.format || 'json';
-    
-    var flickr = 'https://api.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=8dcf3387ba58d5d1c92ca56afa55ae94&user_id=7352143%40N04&format='+format+'&nojsoncallback=1&api_sig=469aa02567c68e69ffd3cb528ea07b6a';
-    
-    console.log('params', $stateParams);
+    // https://api.github.com/repos/amandaharlin/senpai/forks
+    var crashmoRedditComments = 'https://www.reddit.com/user/crashmo/comments.json?limit=15';
 
     function success(data) {
-      console.log('data');
+      console.log('success');
       return data;
     }
 
@@ -18,7 +15,7 @@ function lottieStateProvider($stateProvider) {
     }
 
     return $http
-      .get(flickr)
+      .get(crashmoRedditComments)
       .then(success, failure);
   }
 
@@ -31,10 +28,8 @@ function lottieStateProvider($stateProvider) {
     lottie: resolveLottie
   };
 
-
-  
   var lottie = {
-    url: 'lottie?format',
+    url: 'lottie',
     templateUrl: 'lottie/partial.html',
     controller: 'lottieViewController',
     resolve: resolveLottie
